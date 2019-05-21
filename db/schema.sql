@@ -1,0 +1,7 @@
+CREATE DATABASE taco_db;
+
+CREATE TABLE tacos (
+    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    taco_name VARCHAR(255) NOT NULL,
+    devoured BOOLEAN DEFAULT '0'
+)
