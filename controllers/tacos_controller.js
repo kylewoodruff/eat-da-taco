@@ -8,11 +8,11 @@ let taco = require("../models/tacos");
 // Create all our routes and set up logic within those routes where required.
 apiRouter.get("/", function(req, res) {
   taco.all(function(data) {
-    let tacosObject = {
+    let hbsObject = {
       tacos: data
     };
-    console.log(tacosObject);
-    res.render("index", tacosObject);
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
