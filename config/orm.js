@@ -1,15 +1,22 @@
 var connection = require("./connection.js");
 
 var orm = {
+    all: function(tableName){
+      let queryString = "SELECT * FROM ??";
+      connection.query(queryString, [tableName], function(err, data) {
+        if (err) throw err;
+      console.log(data);
+      });
+    },
     select: function(colName, tableName) {
-      var queryString = "SELECT ?? FROM ??";
+      let queryString = "SELECT ?? FROM ??";
       connection.query(queryString, [colName, tableName], function(err, data) {
         if (err) throw err;
         console.log(data);
       });
     },
     selectWhere: function(tableName, colName, dataOfCol) {
-      var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+      let queryString = "SELECT * FROM ?? WHERE ?? = ?";
   
       console.log(queryString);
   
