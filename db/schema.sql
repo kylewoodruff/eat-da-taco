@@ -5,5 +5,5 @@ USE taco_db;
 CREATE TABLE tacos (
     id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     taco_name VARCHAR(255) NOT NULL,
-    devoured BOOLEAN NOT NULL
+    devoured BOOLEAN DEFAULT FALSE
 );

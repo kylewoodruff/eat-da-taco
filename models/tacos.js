@@ -1,25 +1,25 @@
 let orm = require("../config/orm.js");
 
 const taco = {
-  all: function(callback) {
+  all: function(cb) {
     orm.all("tacos", function(res) {
-      callback(res);
+      cb(res);
     });
   },
   // The variables colNames and values are arrays.
-  create: function(colNames, values, callback) {
+  create: function(colNames, values, cb) {
     orm.create("tacos", colNames, values, function(res) {
-        callback(res);
+        cb(res);
     });
   },
-  update: function(objColVals, condition, callback) {
+  update: function(objColVals, condition, cb) {
     orm.update("tacos", objColVals, condition, function(res) {
-        callback(res);
+        cb(res);
     });
   },
-  delete: function(condition, callback) {
+  delete: function(condition, cb) {
     orm.delete("tacos", condition, function(res) {
-        callback(res);
+        cb(res);
     });
   }
 };
