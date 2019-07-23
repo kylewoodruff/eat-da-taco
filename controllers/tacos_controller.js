@@ -8,31 +8,29 @@ let taco = require("../models/tacos");
 // Create all our routes and set up logic within those routes where required.
 apiRouter.get("/", function(req, res) {
   taco.all(function(data) {
-    let tacos = {
+    let hbsObject = {
       tacos: data
     };
-    console.log(tacos);
-    res.render("index", tacos);
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
 apiRouter.post("/api/tacos", function(req, res) {
-  taco.create([
-    "taco_name", "devoured"
-  ], [
-    req.body.taco, req.body.devoure
-  ], function(result) {
-    console.log(result);
-    res.redirect("/");
-    // res.json({ id: result.insertId });
+  console.log(req.body.name);
+  
+  taco.create(["taco_name"],[req.body.name], function(result) {
+
+    res.json({ id: result.insertId });
   });
 });
 
 apiRouter.put("/api/tacos/:id", function(req, res) {
   let condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
-
+  // console.log("condition", condition);
+  console.log(req.body.devoure);
+  
   taco.update({
     devoured: req.body.devoure
   }, condition, function(result) {

@@ -1,38 +1,36 @@
-<h1>Tacos!</h1>
-
-<h2>Tacos I have not eaten!</h2>
-
-<ul>
-  {{#each tacos}}
-    {{#unless devoured}}
-      {{> tacos/taco-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Tacos I have eaten!</h2>
-
-<ul>
-  {{#each tacos}}
-    {{#if devoured}}
-      {{> tacos/taco-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Taco Flavor</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="taco">Taco Name:</label>
-    <input type="text" id="taco" name="name">
+<div class="container">
+  <h1>Tacos!</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Tacos I have not eaten!</h2>
+        <ul>
+          {{#each tacos}}
+            {{#unless devoured}}
+              {{> tacos/taco-block devoured=true}}
+            {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Tacos I have eaten!</h2>
+        <ul>
+          {{#each tacos}}
+            {{#if devoured}}
+              {{> tacos/taco-block devoured=false}}
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
+  <h2>Add a Taco Flavor</h2>
+  <form class="addTaco-form">
 
-  <div class="form-group">
-    <label for="devoured">Eat?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Eat!<br>
-    <input type="radio" name="devoured" value="0"> Barf!
-  </div>
-
-  <button type="submit">Add Taco</button>
-</form>
+    <div class="form-group">
+      <label for="taco">Taco Name:</label>
+      <input type="text" id="taco" name="name">
+    </div>
+    <button type="submit">Add Taco</button>
+  </form>
+</div>

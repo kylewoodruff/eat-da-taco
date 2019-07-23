@@ -1,34 +1,39 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-    $(".change-status").on("click", function(event) {
+    $(".change-devoured").on("click", function(event) {
+      console.log("Change Devoured state");
+      
       let id = $(this).data("id");
-      let devoured = $(this).data("devoure");
-  
-      let newDevoured = {
-        eaten: devoured
+      let devoured = $(this).data("devoured");
+      // console.log(devoured);
+      
+      let devouredState = {
+        devoure: devoured
       };
+      console.log(devouredState);
+      
   
       // Send the PUT request.
       $.ajax("/api/tacos/" + id, {
         type: "PUT",
-        data: newDevoured
+        data: devouredState
       }).then(
         function() {
           console.log("changed devoured to", devoured);
           // Reload the page to get the updated list
           location.reload();
-        }
-      );
+        });
     });
   
-    $(".create-form").on("submit", function(event) {
+    $(".addTaco-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
       var newTaco = {
-        name: $("#taco").val().trim(),
-        taco: $("[name=taco]:checked").val().trim()
+        name: $("#taco").val().trim()
       };
+      // console.log(newTaco);
+      
   
       // Send the POST request.
       $.ajax("/api/tacos", {
